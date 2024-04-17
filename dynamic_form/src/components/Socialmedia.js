@@ -39,13 +39,21 @@ function DynamicFields({
             placeholder="https://www.linkedin.com/in/username"
           />
           {index !== 0 ? (
-            <button onClick={() => handleRemoveField(field.id)}>Remove</button>
+            <button
+              className="mt-2 bg-red-800/40 px-1 h-10  rounded-lg"
+              onClick={() => handleRemoveField(field.id)}
+            >
+              Remove
+            </button>
           ) : (
-            <div className="pr-14"></div>
+            <div className="pr-16"></div>
           )}
         </div>
       ))}
-      <button onClick={handleAddField} className="mt-10">
+      <button
+        onClick={handleAddField}
+        className="mt-10 bg-blue-800/40 p-2 rounded-lg"
+      >
         Add More
       </button>
     </div>

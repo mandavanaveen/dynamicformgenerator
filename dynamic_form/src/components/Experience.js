@@ -34,27 +34,35 @@ function Experience({
     1: (
       <input
         type="text"
-        placeholder="Aadhar card number"
+        placeholder="Aadhar card number (e.g., 1234 5678 9012)"
         value={governmentIdNumber}
-        onChange={(e) => setGovernmentIdNumber(e.target.value)}
+        onInput={(e) =>
+          (e.target.value = setGovernmentIdNumber(
+            e.target.value.replace(/\D/g, "").slice(0, 12)
+          ))
+        }
+        // onChange={(e) => setGovernmentIdNumber(e.target.value)}
+        pattern="\d{4} \d{4} \d{4}"
         className="form-input mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder-text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
       />
     ),
     2: (
       <input
         type="text"
-        placeholder="Pan card number"
+        placeholder="Pan card number (e.g., ABCDE1234F)"
         value={governmentIdNumber}
         onChange={(e) => setGovernmentIdNumber(e.target.value)}
+        pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
         className="form-input mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder-text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
       />
     ),
     3: (
       <input
         type="text"
-        placeholder="Driving License number"
+        placeholder="Driving License number (e.g., DL-1234567890123)"
         value={governmentIdNumber}
         onChange={(e) => setGovernmentIdNumber(e.target.value)}
+        pattern="DL-[0-9]{13}"
         className="form-input mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder-text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
       />
     ),
@@ -65,8 +73,8 @@ function Experience({
   };
 
   return (
-    <div className="w-full justify-center px-24 py-6 bg-white transition-colors duration-100 hover:bg-slate-200">
-      <div className="w-full pt-4">
+    <div className="w-full border-b-2 border-slate-150 justify-center px-24 py-6 bg-white transition-colors duration-100 hover:bg-slate-200">
+      <div className="w-full">
         <label className="flex space-x-2 text-[#020A12BD] font-semibold pb-1">
           Do you have Experience
         </label>
@@ -83,7 +91,7 @@ function Experience({
               <p>Yes</p>
             </label>
           </div>
-          <div className="w-full border bg-white rounded-lg">
+          <div className="w-full border bg-white rounded-lg ">
             <label className="inline-flex space-x-2 p-2 ">
               <input
                 className="form-radio is-basic h-5 w-5 rounded-full border-slate-400/70 bg-white checked:border-primary checked:bg-primary hover:border-primary focus:border-primary dark:border-navy-500 dark:bg-navy-900 dark:checked:border-accent dark:checked:bg-accent dark:hover:border-accent dark:focus:border-accent"
@@ -135,7 +143,7 @@ function Experience({
       )}
 
       <div className="w-full ">
-        <div className="w-full">
+        <div className="w-full pt-4">
           <label className="flex items-center space-x-2 text-[#020A12BD] font-semibold pb-1">
             Government Id proof*
           </label>

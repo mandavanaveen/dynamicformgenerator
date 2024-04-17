@@ -13,7 +13,7 @@ function Education({
   setGraduatedYear,
 }) {
   return (
-    <div className="w-full justify-center px-24 py-6 bg-white transition-colors duration-100 hover:bg-slate-200">
+    <div className="w-full justify-center border-b-2 border-slate-150 px-24 py-6 bg-white transition-colors duration-100 hover:bg-slate-200">
       <div className="w-full">
         <label className="flex items-center space-x-2 text-[#020A12BD] font-semibold pb-1">
           Email:

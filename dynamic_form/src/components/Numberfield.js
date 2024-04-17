@@ -11,7 +11,7 @@ function Numberfield({
   handleCityChange,
 }) {
   return (
-    <div className=" w-full px-24 py-6 flex flex-col gap-5 justify-center bg-white transition-colors duration-100 hover:bg-slate-200 p-4">
+    <div className=" w-full px-24 py-6 flex flex-col border-b-2 border-slate-150 gap-5 justify-center bg-white transition-colors duration-100 hover:bg-slate-200 p-4">
       <div className="phnumber w-full">
         <label className="flex items-center space-x-2 text-[#020A12BD] font-semibold pb-1">
           Phone Number

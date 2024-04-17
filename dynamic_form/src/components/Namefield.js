@@ -1,5 +1,3 @@
-import React from "react";
-
 function Namefield({
   firstName,
   lastName,
@@ -7,7 +5,7 @@ function Namefield({
   handleLastNameChange,
 }) {
   return (
-    <div className="namefield w-full flex gap-20 justify-center bg-white transition-colors duration-100 hover:bg-slate-200 p-4">
+    <div className="namefield  border-b-2 border-slate-150 w-full flex gap-20 justify-center bg-white transition-colors duration-100 hover:bg-slate-200 p-4 mt-3">
       <div className="firstname ">
         <label>First Name</label>
         <input

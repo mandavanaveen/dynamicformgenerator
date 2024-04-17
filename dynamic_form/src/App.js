@@ -109,63 +109,66 @@ function App() {
   };
 
   return (
-    <div className="App flex flex-col w-4/5 pl-80">
-      <h1 className="text-4xl flex justify-center h-[70px] font-bold">
-        Dynamic Form Generator
-      </h1>
-      <Namefield
-        firstName={firstName}
-        lastName={lastName}
-        handleFirstNameChange={handleFirstNameChange}
-        handleLastNameChange={handleLastNameChange}
-      />
-      <Numberfield
-        phoneNumber={phoneNumber}
-        country={country}
-        state={state}
-        city={city}
-        handlePhoneNumberChange={handlePhoneNumberChange}
-        handleCountryChange={handleCountryChange}
-        handleStateChange={handleStateChange}
-        handleCityChange={handleCityChange}
-      />
-      <Education
-        isStudying={isStudying}
-        handleGraduation={handleGraduation}
-        email={email}
-        setEmail={setEmail}
-        institution={institution}
-        setInstitution={setInstitution}
-        percentage={percentage}
-        setPercentage={setPercentage}
-        graduatedYear={graduatedYear}
-        setGraduatedYear={setGraduatedYear}
-      />
-      <Experience
-        hasExperience={hasExperience}
-        setHasExperience={setHasExperience}
-        experienceYears={experienceYears}
-        setExperienceYears={setExperienceYears}
-        experienceDescription={experienceDescription}
-        setExperienceDescription={setExperienceDescription}
-        selectedGovernmentIdCategory={selectedGovernmentIdCategory}
-        setSelectedGovernmentIdCategory={setSelectedGovernmentIdCategory}
-        governmentIdNumber={governmentIdNumber}
-        setGovernmentIdNumber={setGovernmentIdNumber}
-      />
-      <Socialmedia
-        fields={fields}
-        handleAddField={handleAddField}
-        handleRemoveField={handleRemoveField}
-        handleChange={handleChange}
-      />
-      <div className="flex justify-center mt-10">
-        <button
-          onClick={handleSubmit}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Submit
-        </button>
+    <div className="bg-gradient-to-r from-violet-950 to-black/80 animate-gradient">
+      <div className="App flex flex-col w-4/5 pl-80">
+        <h1 className="text-4xl text-white flex py-4 justify-center h-[70px] font-bold">
+          Dynamic Form Generator
+        </h1>
+        <Namefield
+          firstName={firstName}
+          lastName={lastName}
+          handleFirstNameChange={handleFirstNameChange}
+          handleLastNameChange={handleLastNameChange}
+        />
+
+        <Numberfield
+          phoneNumber={phoneNumber}
+          country={country}
+          state={state}
+          city={city}
+          handlePhoneNumberChange={handlePhoneNumberChange}
+          handleCountryChange={handleCountryChange}
+          handleStateChange={handleStateChange}
+          handleCityChange={handleCityChange}
+        />
+        <Education
+          isStudying={isStudying}
+          handleGraduation={handleGraduation}
+          email={email}
+          setEmail={setEmail}
+          institution={institution}
+          setInstitution={setInstitution}
+          percentage={percentage}
+          setPercentage={setPercentage}
+          graduatedYear={graduatedYear}
+          setGraduatedYear={setGraduatedYear}
+        />
+        <Experience
+          hasExperience={hasExperience}
+          setHasExperience={setHasExperience}
+          experienceYears={experienceYears}
+          setExperienceYears={setExperienceYears}
+          experienceDescription={experienceDescription}
+          setExperienceDescription={setExperienceDescription}
+          selectedGovernmentIdCategory={selectedGovernmentIdCategory}
+          setSelectedGovernmentIdCategory={setSelectedGovernmentIdCategory}
+          governmentIdNumber={governmentIdNumber}
+          setGovernmentIdNumber={setGovernmentIdNumber}
+        />
+        <Socialmedia
+          fields={fields}
+          handleAddField={handleAddField}
+          handleRemoveField={handleRemoveField}
+          handleChange={handleChange}
+        />
+        <div className="flex justify-center mt-10">
+          <button
+            onClick={handleSubmit}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );
