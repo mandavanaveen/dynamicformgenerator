@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/dynamicformgenerator/static/css/main.e41f4730.css",
+    "main.js": "/dynamicformgenerator/static/js/main.81889990.js",
+    "index.html": "/dynamicformgenerator/index.html",
+    "main.e41f4730.css.map": "/dynamicformgenerator/static/css/main.e41f4730.css.map",
+    "main.81889990.js.map": "/dynamicformgenerator/static/js/main.81889990.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e41f4730.css",
+    "static/js/main.81889990.js"
+  ]
+}
