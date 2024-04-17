@@ -1,46 +1,71 @@
-import React from 'react'
+import React from "react";
 
-function Numberfield() {
+function Numberfield({
+  phoneNumber,
+  country,
+  state,
+  city,
+  handlePhoneNumberChange,
+  handleCountryChange,
+  handleStateChange,
+  handleCityChange,
+}) {
   return (
-    <div className=" w-full flex flex-col gap-5 justify-center bg-white transition-colors duration-100 hover:bg-slate-200 p-4">
-      <div className="phnumber">
-        <label>Phone Number </label>
+    <div className=" w-full px-24 py-6 flex flex-col gap-5 justify-center bg-white transition-colors duration-100 hover:bg-slate-200 p-4">
+      <div className="phnumber w-full">
+        <label className="flex items-center space-x-2 text-[#020A12BD] font-semibold pb-1">
+          Phone Number
+        </label>
         <input
           type="text"
-          className=" mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
+          className="form-input mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
           placeholder="9876543210"
-          onInput={e =>
-            (e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10))
+          value={phoneNumber}
+          onChange={handlePhoneNumberChange}
+          onInput={(e) =>
+            (e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10))
           }
         />
       </div>
 
-      <div className="country">
-        <label>Country</label>
+      <div className="country w-full">
+        <label className="flex items-center space-x-2 text-[#020A12BD] font-semibold pb-1">
+          Country
+        </label>
         <input
           type="text"
-          className=" mt-1.5 w-full rounded-md border bg-white border-slate-300 px-1 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
+          className="form-input mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
           placeholder="Ex:- India"
+          value={country}
+          onChange={handleCountryChange}
         />
       </div>
-      <div className="State">
-        <label>State</label>
+      <div className="State w-full">
+        <label className="flex items-center space-x-2 text-[#020A12BD] font-semibold pb-1">
+          State
+        </label>
         <input
           type="text"
-          className=" mt-1.5 w-full rounded-md border bg-white border-slate-300 px-1 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
+          className="form-input mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
           placeholder="Ex:- Telangana"
+          value={state}
+          onChange={handleStateChange}
         />
       </div>
-      <div className="City">
-        <label>City</label>
+      <div className="City w-full">
+        <label className="flex items-center space-x-2 text-[#020A12BD] font-semibold pb-1">
+          City
+        </label>
         <input
           type="text"
-          className=" mt-1.5 w-full rounded-md border bg-white border-slate-300 px-1 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
+          className="form-input mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
           placeholder="Ex:- Hyderabad"
+          value={city}
+          onChange={handleCityChange}
         />
       </div>
     </div>
-  )
+  );
 }
 
-export default Numberfield
+export default Numberfield;
