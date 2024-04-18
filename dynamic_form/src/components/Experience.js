@@ -145,7 +145,7 @@ function Experience({
       <div className="w-full ">
         <div className="w-full pt-4">
           <label className="flex items-center space-x-2 text-[#020A12BD] font-semibold pb-1">
-            Government Id proof*
+            Government Id proof
           </label>
           <select
             className="form-input mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder-text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"

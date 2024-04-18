@@ -5,10 +5,12 @@ function Numberfield({
   country,
   state,
   city,
+  zipcode,
   handlePhoneNumberChange,
   handleCountryChange,
   handleStateChange,
   handleCityChange,
+  handleZipcodeChange,
 }) {
   return (
     <div className=" w-full px-24 py-6 flex flex-col border-b-2 border-slate-150 gap-5 justify-center bg-white transition-colors duration-100 hover:bg-slate-200 p-4">
@@ -17,6 +19,7 @@ function Numberfield({
           Phone Number
         </label>
         <input
+          required
           type="text"
           className="form-input mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
           placeholder="9876543210"
@@ -62,6 +65,18 @@ function Numberfield({
           placeholder="Ex:- Hyderabad"
           value={city}
           onChange={handleCityChange}
+        />
+      </div>
+      <div className="zipcode w-full">
+        <label className="flex items-center space-x-2 text-[#020A12BD] font-semibold pb-1">
+          Zip Code
+        </label>
+        <input
+          type="text"
+          className="form-input mt-1.5 w-full rounded-md border bg-white border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary disabled:pointer-events-none disabled:select-none disabled:border-none disabled:bg-zinc-100"
+          placeholder="Ex:- 600000"
+          value={zipcode}
+          onChange={handleZipcodeChange}
         />
       </div>
     </div>

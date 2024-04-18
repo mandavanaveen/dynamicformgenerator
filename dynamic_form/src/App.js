@@ -11,6 +11,31 @@ function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
+  //namefield errors
+  const [firstNameError, setFirstNameError] = useState(false);
+  const [lastNameError, setLastNameError] = useState(false);
+
+  //valiadation
+  const validateForm = () => {
+    let isValid = true;
+
+    if (!firstName.trim()) {
+      setFirstNameError(true);
+      isValid = false;
+    } else {
+      setFirstNameError(false);
+    }
+
+    if (!lastName.trim()) {
+      setLastNameError(true);
+      isValid = false;
+    } else {
+      setLastNameError(false);
+    }
+
+    return isValid;
+  };
+
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
   };
@@ -24,6 +49,7 @@ function App() {
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
+  const [zipcode, setZipcode] = useState("");
 
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
@@ -39,6 +65,9 @@ function App() {
 
   const handleCityChange = (event) => {
     setCity(event.target.value);
+  };
+  const handleZipcodeChange = (event) => {
+    setZipcode(event.target.value);
   };
 
   //education
@@ -81,7 +110,14 @@ function App() {
   };
 
   //submit
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const isValid = validateForm();
+
+    if (!isValid) {
+      return;
+    }
+
     // Collect form data
     const formData = {
       firstName: firstName,
@@ -90,6 +126,7 @@ function App() {
       country: country,
       state: state,
       city: city,
+      zipcode: zipcode,
       isStudying: isStudying,
       email: email,
       institution: institution,
@@ -105,6 +142,26 @@ function App() {
 
     const jsonData = JSON.stringify(formData);
     localStorage.setItem("formData", jsonData);
+
+    setFirstName("");
+    setLastName("");
+    setPhoneNumber("");
+    setCountry("");
+    setState("");
+    setCity("");
+    setZipcode("");
+    setIsStudying(false);
+    setEmail("");
+    setInstitution("");
+    setPercentage("");
+    setGraduatedYear("");
+    setHasExperience(false);
+    setExperienceYears("");
+    setExperienceDescription("");
+    setSelectedGovernmentIdCategory(0);
+    setGovernmentIdNumber("");
+    setFields([{ id: 1, label: "", value: "" }]);
+    setIdCounter(1);
     // console.log(jsonData);
   };
 
@@ -114,61 +171,66 @@ function App() {
         <h1 className="text-4xl text-white flex py-4 justify-center h-[70px] font-bold">
           Dynamic Form Generator
         </h1>
-        <Namefield
-          firstName={firstName}
-          lastName={lastName}
-          handleFirstNameChange={handleFirstNameChange}
-          handleLastNameChange={handleLastNameChange}
-        />
+        <form>
+          <Namefield
+            firstName={firstName}
+            lastName={lastName}
+            handleFirstNameChange={handleFirstNameChange}
+            handleLastNameChange={handleLastNameChange}
+            firstNameError={firstNameError}
+            lastNameError={lastNameError}
+          />
 
-        <Numberfield
-          phoneNumber={phoneNumber}
-          country={country}
-          state={state}
-          city={city}
-          handlePhoneNumberChange={handlePhoneNumberChange}
-          handleCountryChange={handleCountryChange}
-          handleStateChange={handleStateChange}
-          handleCityChange={handleCityChange}
-        />
-        <Education
-          isStudying={isStudying}
-          handleGraduation={handleGraduation}
-          email={email}
-          setEmail={setEmail}
-          institution={institution}
-          setInstitution={setInstitution}
-          percentage={percentage}
-          setPercentage={setPercentage}
-          graduatedYear={graduatedYear}
-          setGraduatedYear={setGraduatedYear}
-        />
-        <Experience
-          hasExperience={hasExperience}
-          setHasExperience={setHasExperience}
-          experienceYears={experienceYears}
-          setExperienceYears={setExperienceYears}
-          experienceDescription={experienceDescription}
-          setExperienceDescription={setExperienceDescription}
-          selectedGovernmentIdCategory={selectedGovernmentIdCategory}
-          setSelectedGovernmentIdCategory={setSelectedGovernmentIdCategory}
-          governmentIdNumber={governmentIdNumber}
-          setGovernmentIdNumber={setGovernmentIdNumber}
-        />
-        <Socialmedia
-          fields={fields}
-          handleAddField={handleAddField}
-          handleRemoveField={handleRemoveField}
-          handleChange={handleChange}
-        />
-        <div className="flex justify-center mt-10">
-          <button
-            onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Submit
-          </button>
-        </div>
+          <Numberfield
+            phoneNumber={phoneNumber}
+            country={country}
+            state={state}
+            city={city}
+            handlePhoneNumberChange={handlePhoneNumberChange}
+            handleCountryChange={handleCountryChange}
+            handleStateChange={handleStateChange}
+            handleCityChange={handleCityChange}
+            handleZipcodeChange={handleZipcodeChange}
+          />
+          <Education
+            isStudying={isStudying}
+            handleGraduation={handleGraduation}
+            email={email}
+            setEmail={setEmail}
+            institution={institution}
+            setInstitution={setInstitution}
+            percentage={percentage}
+            setPercentage={setPercentage}
+            graduatedYear={graduatedYear}
+            setGraduatedYear={setGraduatedYear}
+          />
+          <Experience
+            hasExperience={hasExperience}
+            setHasExperience={setHasExperience}
+            experienceYears={experienceYears}
+            setExperienceYears={setExperienceYears}
+            experienceDescription={experienceDescription}
+            setExperienceDescription={setExperienceDescription}
+            selectedGovernmentIdCategory={selectedGovernmentIdCategory}
+            setSelectedGovernmentIdCategory={setSelectedGovernmentIdCategory}
+            governmentIdNumber={governmentIdNumber}
+            setGovernmentIdNumber={setGovernmentIdNumber}
+          />
+          <Socialmedia
+            fields={fields}
+            handleAddField={handleAddField}
+            handleRemoveField={handleRemoveField}
+            handleChange={handleChange}
+          />
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={handleSubmit}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
