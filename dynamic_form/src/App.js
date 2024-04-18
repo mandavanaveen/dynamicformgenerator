@@ -115,6 +115,7 @@ function App() {
     const isValid = validateForm();
 
     if (!isValid) {
+      alert("Fill Mandatory Fields");
       return;
     }
 
